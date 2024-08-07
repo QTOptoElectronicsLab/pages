@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title data-key="Title_label">QT Nanoelectronics Lab</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="css/css2.css" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="css/fontawesome-free-6.6.0-web/css/all.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <div id="div_Navbar"></div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown" data-key="header_label">News</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">News</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Publication Start -->
+    <div class="container">
+        <div class="title-block">
+            <h2 data-key="publications_label">Publications</h2>
+            <div id="div_publications_container"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title-block">
+            <h2 data-key="conference_label">Conference</h2>
+            <div id="div_conference_container"></div>
+        </div>
+    </div>
+    <!-- Publication End -->
+
+    <!-- Footer Start -->
+    <div id="div_footer"></div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="fa-regular fa-hand-point-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const transPage = {
+            en: {
+                header_label: "Publication",
+                publications_label: "Publications",
+                conference_label: "Conference",
+            },
+            zh: {
+                header_label: "研究發表",
+                publications_label: "論文發表",
+                conference_label: "研討會",
+            }
+        };
+
+        $(document).ready(function () {
+            const lang = fn_getLanguage();
+ 
+            fn_loadNavbar(lang);
+            fn_loadFooter(lang);
+
+
+            fetch('./data/publications.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('div_publications_container').innerHTML = generatePublicationsHTML(data, lang);
+                fn_switchLanguage(transPage, lang);
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+
+            
+
+            fetch('./data/conference.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('div_conference_container').innerHTML = generateConferenceHTML(data, lang);
+                fn_switchLanguage(transPage, lang);
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+            });
+        });
+
+        function generatePublicationsHTML(data) {
+            let html = '';
+            data.forEach(item => {
+                html += `<p>${item.index}. ${item.authors} "${item.title}" ${item.journal} ${item.volume}.${item.issue}: ${item.pages} (${item.year}), ${item.role} (IF:${item.IF})</p>`;
+            });
+            return html;
+        }
+
+        function generateConferenceHTML(data) {
+            let html = '';
+            data.forEach(item => {
+                html += `<p>${item.index}. ${item.authors} "${item.title}" ${item.conference} ${item.pages} (${item.year})(${item.presentation_type})</p>`;
+            });
+            return html;
+        }
+    </script>
+</body>
+
+</html>
