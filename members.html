@@ -28,6 +28,25 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Members Override -->
+    <style>
+        .team-item img {
+            top: 0 !important;
+        }
+        .team-item:hover img {
+            top: 0 !important;
+        }
+        .team-item .team-text {
+            height: auto !important;
+            margin-top: 0 !important;
+            min-height: 260px;
+        }
+        .team-item:hover .team-text {
+            height: auto !important;
+            margin-top: 0 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -198,12 +217,16 @@
                 leader_title:"Group Leader",
                 leader_mail_label:"E-mail",
                 members_label:"Group Members",
+                research_label:"Research",
+                interest_label:"Interest",
             },
             zh: {
                 header_label:"成員",
                 leader_title:"團隊負責人",
                 leader_mail_label:"電子信箱",
                 members_label:"團隊成員",
+                research_label:"研究方向",
+                interest_label:"興趣",
             }
         };
 
@@ -262,17 +285,25 @@
 
         function generateMemberHTML(data,lang) {
             let html = '';
-            data.forEach(item => {
-                html += `<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="team-item position-relative rounded overflow-hidden">
-                                <div class="overflow-hidden">
-                                    <img class="img-fluid" src="img/${item[lang].member_photo_url}" alt="">
+            const delays = ['0.1s', '0.3s', '0.5s', '0.7s'];
+            const researchLabel = transPage[lang].research_label;
+            const interestLabel = transPage[lang].interest_label;
+            data.forEach((item, index) => {
+                const t = item[lang];
+                const comment = t.member_comment
+                    ? `<p class="d-inline-block rounded-pill px-3 py-2 mb-0" style="background-color: #6c757d; color: #ffffff; font-size: 14px;">${t.member_comment}</p>`
+                    : '';
+                html += `<div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="${delays[index % 4]}">
+                            <div class="team-item position-relative rounded overflow-hidden d-flex flex-column h-100">
+                                <div class="d-flex align-items-center justify-content-center" style="height: 250px; background-color: #f0f2f5;">
+                                    <img class="img-fluid" src="img/${t.member_photo_url}" alt="${t.member_name}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
                                 </div>
                                 <div class="team-text bg-light text-center p-4">
-                                    <h5>${item[lang].member_name}</h5>
-                                    <a href="mailto:${item[lang].member_mail}"><p class="text-primary">${item[lang].member_mail}</p></a>
-                                    <div class="team-social text-center">
-                                        <p>${item[lang].member_comment}</p>
+                                    <h5 class="mb-3">${t.member_name}</h5>
+                                    <p class="mb-1" style="color: #6c757d;"><span class="fw-bold">${researchLabel}: </span>${t.member_research}</p>
+                                    <p class="mb-2" style="color: #6c757d;"><span class="fw-bold">${interestLabel}: </span>${t.member_interest}</p>
+                                    <div class="d-flex align-items-center justify-content-center w-100" style="min-height: 44px;">
+                                        ${comment}
                                     </div>
                                 </div>
                             </div>

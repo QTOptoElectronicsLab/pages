@@ -1,2 +1,130 @@
 [
+    {
+        "en": {
+            "member_name": "Chang Chih-Yin",
+            "member_photo_url": "members/member_01.jpg",
+            "member_research": "finFET (not mine), MOS capacitors",
+            "member_interest": "Playing video games, Yu-Gi-Oh! cards",
+            "member_comment": "Kids, never live in Hsinchu."
+        },
+        "zh": {
+            "member_name": "張治尹",
+            "member_photo_url": "members/member_01.jpg",
+            "member_research": "finFET (不是我做的)、MOS電容",
+            "member_interest": "打電動、遊戲王卡牌",
+            "member_comment": "孩子們，千萬不要住新竹"
+        }
+    },
+    {
+        "en": {
+            "member_name": "Li Yue-Lin",
+            "member_photo_url": "members/member_02.jpg",
+            "member_research": "2D FET TLM device fabrication",
+            "member_interest": "Playing computer games, listening to JPOP",
+            "member_comment": ""
+        },
+        "zh": {
+            "member_name": "李岳霖",
+            "member_photo_url": "members/member_02.jpg",
+            "member_research": "2dFET TLM元件製作",
+            "member_interest": "玩電腦遊戲、聽JPOP",
+            "member_comment": ""
+        }
+    },
+    {
+        "en": {
+            "member_name": "Lin Yang-Sheng",
+            "member_photo_url": "members/member_03.jpeg",
+            "member_research": "Hot electron transistor (HET)",
+            "member_interest": "Playing mahjong and drinking",
+            "member_comment": "Run away!"
+        },
+        "zh": {
+            "member_name": "林洋生",
+            "member_photo_url": "members/member_03.jpeg",
+            "member_research": "熱電子電晶體（Hot electron transistor）",
+            "member_interest": "打麻將跟喝酒",
+            "member_comment": "塊陶"
+        }
+    },
+    {
+        "en": {
+            "member_name": "Zheng-Yuan Liu (Darren)",
+            "member_photo_url": "members/member_04.png",
+            "member_research": "HET",
+            "member_interest": "Cats, working out, slaying zombies",
+            "member_comment": "I just want to get enough sleep."
+        },
+        "zh": {
+            "member_name": "劉鄭元",
+            "member_photo_url": "members/member_04.png",
+            "member_research": "熱電子電晶體（HET）",
+            "member_interest": "貓、健身、打殭屍",
+            "member_comment": "我只想好好睡一覺"
+        }
+    },
+    {
+        "en": {
+            "member_name": "Wang Wei-Hao",
+            "member_photo_url": "members/member_05.jpeg",
+            "member_research": "PtSe2 MOSFET",
+            "member_interest": "Basketball, mahjong, singing",
+            "member_comment": ""
+        },
+        "zh": {
+            "member_name": "王偉豪",
+            "member_photo_url": "members/member_05.jpeg",
+            "member_research": "PtSe2 MOSFET",
+            "member_interest": "打籃球、麻將、唱歌",
+            "member_comment": ""
+        }
+    },
+    {
+        "en": {
+            "member_name": "Chang Pin-Wei",
+            "member_photo_url": "members/member_06.jpeg",
+            "member_research": "MoS2 FET, annealing",
+            "member_interest": "Watching MLB, playing mobile games, going out",
+            "member_comment": ""
+        },
+        "zh": {
+            "member_name": "張品威",
+            "member_photo_url": "members/member_06.jpeg",
+            "member_research": "MoS2 FET、annealing",
+            "member_interest": "看MLB、玩手遊、出去玩",
+            "member_comment": ""
+        }
+    },
+    {
+        "en": {
+            "member_name": "Chang Yun Jui",
+            "member_photo_url": "members/member_07.jpeg",
+            "member_research": "WSe2, Waveguide",
+            "member_interest": "Watching sports, traveling",
+            "member_comment": ""
+        },
+        "zh": {
+            "member_name": "張云睿",
+            "member_photo_url": "members/member_07.jpeg",
+            "member_research": "WSe2、Waveguide",
+            "member_interest": "看球賽、旅行",
+            "member_comment": ""
+        }
+    },
+    {
+        "en": {
+            "member_name": "YANG, CHENG-CHUN",
+            "member_photo_url": "members/member_08.png",
+            "member_research": "2D materials, FET, Minecraft",
+            "member_interest": "Reading, playing tennis, Minecraft",
+            "member_comment": ""
+        },
+        "zh": {
+            "member_name": "楊承鈞",
+            "member_photo_url": "members/member_08.png",
+            "member_research": "二維材料、FET、Minecraft",
+            "member_interest": "看書、打網球",
+            "member_comment": ""
+        }
+    }
 ]
